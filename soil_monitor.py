@@ -59,8 +59,8 @@ if 'mqtt_connected' not in st.session_state:
     st.session_state['mqtt_connected'] = False
 
 # Callback when connecting to the MQTT broker
-def on_connect(client, userdata, flags, rc):
-    if rc == 0:
+def on_connect(client, userdata, flags, reason_code, properties):
+    if reason_code == 0:
         st.session_state['mqtt_connected'] = True
         client.subscribe(MQTT_TOPIC)
     else:
