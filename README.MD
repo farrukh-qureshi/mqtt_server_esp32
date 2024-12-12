@@ -1,6 +1,3 @@
-Here's a comprehensive Markdown documentation of the MQTT project:
-
-```markdown
 # MQTT Data Collection and Visualization System
 
 ## Project Overview
@@ -208,7 +205,7 @@ streamlit run mqtt_dashboard.py
 MIT License
 
 ## Contributors
-Farrukh Qureshi
+[Your Name]
 
 ## Version History
 - v1.0.0 - Initial Release
@@ -218,4 +215,4 @@ Farrukh Qureshi
 
 ---
 
-*Last Updated: 12-12-2024*
+*Last Updated: 12-12-24*
