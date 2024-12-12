@@ -9,6 +9,7 @@ import time
 from collections import deque
 import sqlite3
 import os
+import threading
 
 # Page config
 st.set_page_config(
@@ -143,6 +144,14 @@ def create_plots(df):
     
     return fig
 
+# Function to update data
+def update_data():
+    while True:
+        # Your logic to fetch and update data goes here
+        # For example, you might want to read from MQTT or update Streamlit components
+        st.experimental_rerun()  # Refresh the Streamlit app
+        time.sleep(15)  # Wait for 15 seconds
+
 def main():
     # Initialize MQTT client
     client = mqtt.Client(client_id=f'streamlit_client_{time.time()}', protocol=mqtt.MQTTv5)
@@ -227,6 +236,9 @@ def main():
 
     # Sleep briefly to prevent too frequent updates
     time.sleep(1)
+
+    # Start a thread to update data
+    threading.Thread(target=update_data, daemon=True).start()
 
 if __name__ == "__main__":
     main()
